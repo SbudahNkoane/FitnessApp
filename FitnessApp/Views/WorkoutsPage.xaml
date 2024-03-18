@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessApp.Views.WorkoutsPage"
+             xmlns:viewmodel="clr-namespace:FitnessApp.ViewModels"
+             xmlns:models="clr-namespace:FitnessApp.Models"
+             x:DataType="viewmodel:WorkoutsPageViewModel"
+             BackgroundColor="{StaticResource AppBlue}"
+             Title="WorkoutsPage">
+   
+    <ScrollView>
+
+        <Grid RowDefinitions="Auto">
+            <ActivityIndicator 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"  
+                HeightRequest="60" 
+                IsRunning="{Binding IsLoading}"
+                Grid.Row="1"
+                Grid.RowSpan="3"/>
+            <CollectionView HorizontalScrollBarVisibility="Always" ItemsSource="{Binding Workouts}" Grid.Row="0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate  x:DataType="models:Workout">
+
+                        <Frame   Opacity="0.9" Margin="15" HeightRequest="350">
+                          <Grid RowSpacing="14" RowDefinitions="*,.5*,.5*,.5*,*" ColumnDefinitions="*,*">
+                              
+                            <Label Grid.RowSpan="4" Text="{Binding Type}" FontAttributes="Bold" FontSize="Medium"/>
+                                <Label HorizontalOptions="End" Grid.Column="1" Grid.RowSpan="4" Text="{Binding Date}" FontAttributes="Bold" FontSize="Header"/>
+                                <HorizontalStackLayout Grid.Row="1">
+                                    <Label Grid.Row="1" Grid.RowSpan="4" Padding="0,0,10,0" Text="Duration:" FontAttributes="Bold"  FontSize="12"/>
+                                    <Label Grid.Row="1" Grid.RowSpan="4" Text="{Binding Duration}" FontAttributes="Bold"  FontSize="12"/>
+                                    <Label Grid.Row="1" Grid.RowSpan="4" Padding="10,0,0,0" Text="Minutes" FontAttributes="Bold"  FontSize="12"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Grid.Row="2">
+                                    <Label Grid.Row="1" Grid.RowSpan="4" Padding="0,0,10,0" Text="Distance:" FontAttributes="Bold"  FontSize="12"/>
+                                   <Label  Grid.RowSpan="4" Text="{Binding Distance}" FontAttributes="Bold" FontSize="12"/>
+                                    <Label Grid.Row="1" Grid.RowSpan="4" Padding="10,0,0,0" Text="KMs" FontAttributes="Bold"  FontSize="12"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Grid.Row="3">
+                                    <Label Grid.Row="1" Grid.RowSpan="4" Padding="0,0,10,0" Text="Heart Rate:" FontAttributes="Bold"  FontSize="12"/>
+                                    <Label Grid.RowSpan="4" Text="{Binding AverageHeartRate}" FontAttributes="Bold" FontSize="12"/>
+                                    <Label Grid.Row="1" Grid.RowSpan="4" Padding="10,0,0,0" Text="bpm" FontAttributes="Bold"  FontSize="12"/>
+                                </HorizontalStackLayout>
+                              
+                                    <Image 
+                                        HeightRequest="140" 
+                                        VerticalOptions="Start" 
+                                        HorizontalOptions="End" 
+                                        WidthRequest="150" 
+                                        Source="running1.png" 
+                                        Grid.Row="1" 
+                                        Grid.Column="2"  
+                                        Grid.RowSpan="2"
+                                        />
+
+                                <VerticalStackLayout  Grid.Row="5" HorizontalOptions="Center" Grid.ColumnSpan="2" >
+                                    <Label Text="Calories Burned" />
+                                    <HorizontalStackLayout>
+                                        <Label  
+           
+                                               HorizontalOptions="Center" 
+                                                FontAttributes="Bold" 
+                                           FontSize="Large" 
+                                           Text="{Binding CaloriesBurned}" />
+                                        <Label Grid.Row="1" Grid.RowSpan="4" Padding="10,0,0,0" Text="bpm"     FontAttributes="Bold" 
+FontSize="Large"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            
+                            
+                        </Grid>  
+                        </Frame>
+                    
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid> 
+    </ScrollView>
+    
+    
+</ContentPage>

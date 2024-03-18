@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessApp.Views.SessionsPage"
+             xmlns:viewmodel="clr-namespace:FitnessApp.ViewModels"
+             xmlns:models="clr-namespace:FitnessApp.Models"
+             x:DataType="viewmodel:SessionsPageViewModel"
+              BackgroundColor="{StaticResource AppBlue}"
+             Title="Sessions">
+    <CollectionView HorizontalScrollBarVisibility="Always" ItemsSource="{Binding Sessions}" Grid.Row="2">
+        <CollectionView.ItemTemplate>
+            <DataTemplate  x:DataType="models:Session">
+
+                <Frame   Opacity="0.9" Margin="15" HeightRequest="700">
+                    <Grid RowSpacing="15" RowDefinitions="30,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto">
+
+                        <Label Grid.RowSpan="4" Text="{Binding Type}" FontAttributes="Bold" FontSize="Subtitle"/>
+                        <Label HorizontalOptions="End" Grid.Column="1" Grid.RowSpan="4" Text="{Binding Date}" FontAttributes="Bold" FontSize="Header"/>
+                        <HorizontalStackLayout Grid.Row="1">
+                            <Label Grid.Row="1" Grid.RowSpan="4" Padding="0,0,10,0" Text="Duration:" FontAttributes="Bold"  FontSize="12"/>
+                            <Label Grid.Row="1" Grid.RowSpan="4" Text="{Binding Duration}" FontAttributes="Bold"  FontSize="12"/>
+                            <Label Grid.Row="1" Grid.RowSpan="4" Padding="10,0,0,0" Text="Minutes" FontAttributes="Bold"  FontSize="12"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Grid.Row="2">
+                            <Label Grid.Row="1" Grid.RowSpan="4" Padding="0,0,10,0" Text="Total Exercises:" FontAttributes="Bold"  FontSize="12"/>
+                            <Label  Grid.RowSpan="4" Text="{Binding Exercises.Count}" FontAttributes="Bold" FontSize="12"/>
+                            
+                        </HorizontalStackLayout>
+                       
+
+                        <!--<Image 
+                                        HeightRequest="140" 
+                                        VerticalOptions="Start" 
+                                        HorizontalOptions="End" 
+                                        WidthRequest="150" 
+                                        Source="running1.png" 
+                                        Grid.Row="1" 
+                                        Grid.Column="2"  
+                                        Grid.RowSpan="2"
+                                        />-->
+
+                        <VerticalStackLayout 
+                           
+                            Spacing="10"  
+                            Grid.Row="3" 
+                            HorizontalOptions="Center" 
+                            Grid.ColumnSpan="2" >
+                            <Label Text="Calories Burned" />
+                            <HorizontalStackLayout>
+                                <Label  
+           
+                                               HorizontalOptions="Center" 
+                                                FontAttributes="Bold" 
+                                           FontSize="Large" 
+                                           Text="{Binding CaloriesBurned}" />
+                                <Label Grid.Row="1" Grid.RowSpan="4" Padding="10,0,0,0" Text="bpm"     FontAttributes="Bold" 
+                                 FontSize="Large"/>
+                                
+                            </HorizontalStackLayout>
+                            
+                        </VerticalStackLayout>
+                        
+                             <VerticalStackLayout Spacing="20"  Grid.ColumnSpan="2" Grid.Row="6">
+                            <Label  Text="Execises"/>
+                            <CollectionView  Grid.Row="6"  ItemsSource="{Binding Exercises}">
+                            <CollectionView.ItemTemplate >
+                                <DataTemplate  x:DataType="models:Exercise">
+                                    <Frame WidthRequest="300">
+                                        <VerticalStackLayout Spacing="10">
+                                                <HorizontalStackLayout Spacing="34" HorizontalOptions="StartAndExpand">
+                                                    <Label Text="Name:" Margin="0,0,10,0"/>
+                                                <Label Text="{Binding Name}"/>
+                                             </HorizontalStackLayout>
+                                                <HorizontalStackLayout Spacing="50"  HorizontalOptions="StartAndExpand">
+                                                    <Label Text="Sets:" Margin="0,0,10,0"/>
+                                                    <Label Text="{Binding Sets}"/>
+                                                </HorizontalStackLayout>
+                                                <HorizontalStackLayout Spacing="53" HorizontalOptions="StartAndExpand">
+                                                    <Label Text="Reps:"/>
+                                                    <Label Text="{Binding Reps}"/>
+                                                </HorizontalStackLayout>
+                                                <HorizontalStackLayout Spacing="59" HorizontalOptions="StartAndExpand">
+                                                    <Label Text="Sets:"/>
+                                                    <Label Text="{Binding  Weight}"/>
+                                                </HorizontalStackLayout>
+                                            </VerticalStackLayout>  
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        </VerticalStackLayout>
+                       
+                       
+                        
+                        
+
+                    </Grid>
+                </Frame>
+
+
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
