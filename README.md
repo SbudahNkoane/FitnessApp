@@ -20,6 +20,11 @@ The project follows a MVVM architecture and Repository pattern, contains the fol
 1. MVVM design: Using the mvvm architecture allows for separation of concerns and an easier way to structure your code and debug
 2. Repository Pattern: This pattern allows for coding to an interface which is much cleaner and organized. Concrete classes are created and they implement interfaces.
 
+
+## Data Visualisation (In Progress)
+Packages: Syncfusion.Maui.Chart and Microchart.Maui
+This is still on going, Chart was implemented, but the chart builds on the screen with no data
+
 ## Getting Started
 1. Clone this repository to your local machine.
 2. Create a Mock API on your favourite website
