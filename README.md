@@ -15,17 +15,23 @@ The project follows a MVVM architecture and Repository pattern, contains the fol
 - `AppShell.xaml`: This is the shell that the pages use on the application.
 - `MauiProgram.cs`: The project's C# file, specifying project dependencies and build settings. 
 - `README.md`: The file you are currently reading, providing information about the project.
-## Getting Started
 
+## Project Design choices
+1. MVVM design: Using the mvvm architecture allows for separation of concerns and an easier way to structure your code and debug
+2. Repository Pattern: This pattern allows for coding to an interface which is much cleaner and organized. Concrete classes are created and they implement interfaces.
+
+## Getting Started
 1. Clone this repository to your local machine.
 2. Create a Mock API on your favourite website
-
 3. Build and run the application using your preferred IDE.
+4. Access the application in your Windows, Android, ios devices.
 
-4. Access the application in your Windows, Android, IOS using the appropriate URL (usually `http://localhost:8080`).
+## Packages
+1. CommunityToolkit.Mvvm
+2. Newtonsoft.json
+3. Syncfusion.Maui.Charts
 
 ## Feedback and Contributions
-
 Feel free to provide feedback, report issues, or contribute to this project by opening GitHub issues or pull requests. I appreciate your contributions to make this template project better.
 
 Happy coding!
